@@ -1,0 +1,32 @@
+
+#nefunguje
+import requests
+import re
+from bs4 import BeautifulSoup
+
+# Replace the URL with the actual URL of the Prague Zoo page
+url = 'https://www.zoopraha.cz/zvirata-a-expozice/lexikon-zvirat'
+
+# Send a GET request to the URL
+response = requests.get(url)
+
+# Check if the request was successful (status code 200)
+if response.status_code == 200:
+    # Parse the HTML content using BeautifulSoup
+    soup = BeautifulSoup(response.text, 'html.parser')
+
+    # Find the specific element that contains the animal names
+    target_element = soup.find('div', class_='accordionAbeceda')
+
+    # Check if the target element was found
+    if target_element:
+        # Extract the names from the target element using BeautifulSoup
+        animal_names = [a.get_text(strip=True) for a in target_element.find_all('a')]
+
+        # Print the list of animals
+        print(animal_names)
+    else:
+        print("Error: Target element not found in the HTML source code.")
+
+else:
+    print(f"Error: Unable to fetch the webpage (Status code: {response.status_code})")
