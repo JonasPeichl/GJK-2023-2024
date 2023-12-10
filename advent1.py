@@ -1,6 +1,6 @@
 import re
 cisla = "[1-9]"
-text = open("TrebuchetLauncher")
+text = open("TestTrebuchet")
 kod = text.readlines()
 for line in kod:
     print(line)

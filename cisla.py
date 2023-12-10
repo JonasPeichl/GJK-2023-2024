@@ -1,7 +1,14 @@
 
-text = open("TrebuchetLauncher")
-kod = text.readlines()
-for line in kod:
-    print(line)
+text = open("TestTrebuchet")
 
-print(kod)
+prvni = False
+for i in range(4):
+   kod = text.readline()
+   for line in kod:
+      while prvni == False:
+         if line.isdigit():
+            print(line)
+            prvni = True
+
+
+      
