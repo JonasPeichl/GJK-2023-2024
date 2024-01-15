@@ -3,7 +3,6 @@ import turtle
 #ve dvojici se Sebastianem
 x= 20
 def drawSquare(t, x):
-    """Make turtle t draw a square of with side sz."""
     for i in range(4):
         t.forward(x)
         t.left(90)
